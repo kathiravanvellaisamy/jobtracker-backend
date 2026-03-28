@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 
 connectDB();
@@ -10,6 +11,7 @@ const app = express();
 
 // Middleware
 app.use(bodyParser.json());
+app.use(cors())
 
 // Routes
 app.use("/api/jobs", require("./routes/jobRoutes"));
